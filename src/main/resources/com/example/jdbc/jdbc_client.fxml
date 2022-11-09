@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jdbc.ClientController">
+    <children>
+        <TableView fx:id="table" layoutX="16.0" layoutY="187.0" onMouseClicked="#onSelectOneRecord" prefHeight="302.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="col_id" prefWidth="69.0" text="ID" />
+                <TableColumn fx:id="col_name" prefWidth="206.5" text="NAME" />
+                <TableColumn fx:id="col_profit" prefWidth="87.5" text="PROFIT" />
+                <TableColumn fx:id="col_amount_of_workers" prefWidth="145.5" text="AMOUNT OF WORKERS" />
+                <TableColumn fx:id="col_square" prefWidth="77.5" text="SQUARE" />
+                <TableColumn fx:id="col_average_salary" prefWidth="113.0" text="AVERAGE SALARY" />
+            </columns>
+        </TableView>
+        <AnchorPane prefHeight="68.0" prefWidth="730.0">
+            <children>
+                <Button fx:id="ExitButton" layoutX="629.0" layoutY="22.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="EXIT" textFill="#ff0101">
+                    <font>
+                        <Font name="Times New Roman Bold" size="12.0" />
+                    </font>
+                </Button>
+                <TextArea fx:id="information_field" layoutX="14.0" layoutY="16.0" prefHeight="10.0" prefWidth="557.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="69.0" prefHeight="59.0" prefWidth="730.0">
+            <children>
+                <TextField fx:id="name_field" layoutX="14.0" layoutY="22.0" prefHeight="25.0" prefWidth="156.0" />
+                <TextField fx:id="amount_of_workers_field" layoutX="307.0" layoutY="22.0" prefHeight="25.0" prefWidth="116.0" />
+                <TextField fx:id="average_salary_field" layoutX="536.0" layoutY="22.0" prefHeight="25.0" prefWidth="116.0" />
+                <TextField fx:id="square_field" layoutX="432.0" layoutY="22.0" prefHeight="25.0" prefWidth="87.0" />
+                <TextField fx:id="profit_field" layoutX="190.0" layoutY="22.0" prefHeight="25.0" prefWidth="108.0" />
+                <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="46.63671875" />
+                <Text layoutX="190.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profit" wrappingWidth="46.63671875" />
+                <Text layoutX="307.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount of workers" wrappingWidth="126.0" />
+                <Text layoutX="432.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Square" wrappingWidth="46.63671875" />
+                <Text layoutX="536.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average salary" wrappingWidth="107.63671875" />
+            <Button fx:id="ClearButton" layoutX="666.0" layoutY="20.0" mnemonicParsing="false" text="Clear" />
+            </children>
+        </AnchorPane>
+        <Button fx:id="AddButton" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Add new shop" />
+        <Button fx:id="DeleteButton" layoutX="189.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Delete selected shop" />
+        <Button fx:id="UpdateButton" layoutX="383.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Update selected shop" />
+        <Button fx:id="UpdateDataBaseButton" layoutX="577.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Update database" />
+    </children>
+</AnchorPane>
