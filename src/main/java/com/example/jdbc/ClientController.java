@@ -4,9 +4,11 @@ package com.example.jdbc;
 import com.example.jdbc.Server.entity.Shop;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -223,4 +225,12 @@ public class ClientController {
         return flag;
     }
 
+    public final EventHandler<WindowEvent> closeEventHandler = new EventHandler<WindowEvent>() {
+        @Override
+        public void handle(WindowEvent windowEvent) {
+            client.writeObject(Action.EXIT);
+            client.disConnect();
+            System.exit(0);
+        }
+    };
 }
