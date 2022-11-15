@@ -112,7 +112,7 @@ public class ClientController {
 
         AddButton.setOnAction(actionEvent -> {
 
-            if (!name_field.getText().equals("")) {
+            if (!name_field.getText().trim().equals("")) {
                 if(isInputDataCorrect()) {
                     Shop shop = getShopFromInputData();
                     shop.setName(name_field.getText());
@@ -137,11 +137,11 @@ public class ClientController {
         });
 
         UpdateButton.setOnAction(actionEvent -> {
-            if (!name_field.getText().equals("")
-                    || !profit_field.getText().equals("")
-                    || !square_field.getText().equals("")
-                    || !average_salary_field.getText().equals("")
-                    || !amount_of_workers_field.getText().equals("")) {
+            if (!name_field.getText().trim().equals("")
+                    && !profit_field.getText().equals("")
+                    && !square_field.getText().equals("")
+                    && !average_salary_field.getText().equals("")
+                    && !amount_of_workers_field.getText().equals("")) {
                 if(isInputDataCorrect()) {
                     Shop shop = getShopFromInputData();
                     shop.setId(table.getSelectionModel().getSelectedItem().getId());
@@ -194,20 +194,20 @@ public class ClientController {
     private Shop getShopFromInputData(){
         Shop shop = new Shop();
         shop.setName(!name_field.getText().equals("") ? name_field.getText() : "");
-        shop.setProfit(!profit_field.getText().equals("") ? Float.parseFloat(profit_field.getText()) : 0f);
-        shop.setAverageSalary(!average_salary_field.getText().equals("") ? Float.parseFloat(average_salary_field.getText()) : 0f);
-        shop.setSquare(!square_field.getText().equals("") ? Float.parseFloat(square_field.getText()) : 0f);
+        shop.setProfit(!profit_field.getText().equals("") ? Float.parseFloat(profit_field.getText().replace(",", ".")) : 0f);
+        shop.setAverageSalary(!average_salary_field.getText().equals("") ? Float.parseFloat(average_salary_field.getText().replace(",", ".")) : 0f);
+        shop.setSquare(!square_field.getText().equals("") ? Float.parseFloat(square_field.getText().replace(",", ".")) : 0f);
         shop.setAmountOfWorkers(!amount_of_workers_field.getText().equals("") ? Integer.parseInt(amount_of_workers_field.getText()) : 0);
         return shop;
     }
 
     private boolean isInputDataCorrect(){
         boolean flag = true;
-        if(!new Scanner(average_salary_field.getText()).hasNextFloat()) {
+        if(!new Scanner(average_salary_field.getText().replace(".", ",")).hasNextFloat()) {
             average_salary_field.setText("INCORRECT");
             flag = false;
         }
-        if(!new Scanner(square_field.getText()).hasNextFloat()) {
+        if(!new Scanner(square_field.getText().replace(".", ",")).hasNextFloat()) {
             square_field.setText("INCORRECT");
             flag = false;
         }
@@ -215,7 +215,7 @@ public class ClientController {
             amount_of_workers_field.setText("INCORRECT");
             flag = false;
         }
-        if(!new Scanner(profit_field.getText()).hasNextFloat()) {
+        if(!new Scanner(profit_field.getText().replace(".", ",")).hasNextFloat()) {
             profit_field.setText("INCORRECT");
             flag = false;
         }
